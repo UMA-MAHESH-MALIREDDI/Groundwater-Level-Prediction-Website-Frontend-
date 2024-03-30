@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap');
+
+
+.back-container {
+    background-image: url("https://assets.ccbp.in/frontend/intermediate-rwd/nature-gallery-bg.png");
+    height: 100vh;
+    background-size: cover;
+    margin: 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.here {
+    font-size: 30px;
+}
+
+.myForm {
+    width: 60%;
+
+}
+
+.up {
+    color: black;
+    font-size: 20px;
+
+
+}
+
+.bg-container {
+    background-image: url("https://siwi.org/wp-content/uploads/2021/09/colorful-water-drop-splash-e1635164525186.jpg.webp");
+
+    height: 100vh;
+
+}
+
+* {
+    margin: 0px;
+}
+
+.card {
+    background-color: #ffffff;
+    padding: 5px;
+    margin: 10px;
+    border-radius: 13px;
+}
+
+@media screen and (min-width:768px) {
+    .head {
+        font-size: 75px;
+        text-align: center;
+        font-family: "roboto";
+        color: white;
+        font-weight: bold;
+        padding-top: 35px;
+        margin-top: 10px;
+
+    }
+
+    .head2 {
+        font-size: 30px;
+        text-decoration: underline;
+        text-align: left;
+        font-family: "roboto";
+        color: #183b56;
+        padding: 5px;
+        margin: 5px;
+
+    }
+
+    .para {
+        font-size: 25px;
+        color: grey;
+        font-family: "roboto";
+        padding: 5px;
+    }
+
+    .card-container {
+        color: #ffffff;
+        border-radius: 10px;
+    }
+
+    .predict {
+        color: white;
+        background-color: #183b56;
+        height: 100px;
+        text-align: center;
+        width: 100px;
+        font-weight: bold;
+        font-size: 18px;
+        border-radius: 10px;
+        margin: 5px;
+    }
+
+    .predict-cont {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+}
+
+.head {
+    font-size: 35px;
+    text-align: center;
+    font-family: "roboto";
+    color: white;
+    font-weight: bold;
+    padding-top: 35px;
+    margin-top: 10px;
+
+}
+
+.head2 {
+    font-size: 20px;
+    text-decoration: underline;
+    text-align: left;
+    font-family: "roboto";
+    color: #183b56;
+    padding: 5px;
+    margin: 5px;
+
+}
+
+.para {
+    font-size: 15px;
+    color: grey;
+    font-family: "roboto";
+    padding: 5px;
+}
+
+.card-container {
+    color: #ffffff;
+    border-radius: 10px;
+}
+
+.predict {
+    color: white;
+    background-color: #183b56;
+    height: 100px;
+    text-align: center;
+    width: 100px;
+    font-weight: bold;
+    font-size: 12px;
+    border-radius: 10px;
+    margin: 5px;
+}
+
+.predict-cont {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+
+.bg-container2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.containers {
+    background-image: url("https://w0.peakpx.com/wallpaper/227/468/HD-wallpaper-blue-water-drop-background-water-drop.jpg");
+    height: 100vh;
+
+}
+
+@media screen and (min-width:768px) {
+    .containers {
+        background-image: url("https://siwi.org/wp-content/uploads/2021/09/colorful-water-drop-splash-e1635164525186.jpg.webp ");
+        height: 100vh;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+
+
+    }
+
+    .form {
+        background-color: silver;
+        margin-right: 7px;
+        margin-left: 7px;
+        padding: 5px;
+    }
+
+    .level1 {
+        color: #ffffff;
+        font-size: 50px;
+        font-family: "roboto";
+        font-weight: bold;
+        padding: 10px;
+
+    }
+
+    .state1 {
+        color: black;
+        font-weight: 400;
+        padding: 5px;
+        font-size: 25px;
+    }
+
+    .buttons {
+        width: 80px;
+        margin-top: 15px;
+        margin-left: 6px;
+    }
+}
+
+.form {
+    background-color: silver;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.level1 {
+    color: #ffffff;
+    font-size: 30px;
+    font-family: "roboto";
+    font-weight: bold;
+    padding: 10px;
+
+}
+
+.state1 {
+    color: black;
+    font-weight: 400;
+    padding: 5px;
+    font-size: 18px;
+}

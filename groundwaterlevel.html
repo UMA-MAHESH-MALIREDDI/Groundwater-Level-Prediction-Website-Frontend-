@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <div id="sectionmain">
+        <div class="back-container">
+            <form class="myForm">
+                <div class="mb-3">
+                    <h1 class="p-2 here">Login Here</h1>
+                    <label for="name">Username</label>
+                    <input type="text" class="form-control" id="username" />
+                    <p id="nameErrMsg" class="error-message"></p>
+                </div>
+                <div class="mb-3">
+                    <label for="email">Password</label>
+                    <input type="text" class="form-control" id="email" />
+                    <p id="emailErrMsg" class="error-message"></p>
+                </div>
+            </form>
+            <button class="btn btn-primary buttons" onclick="display('sectionhome')">Login</button>
+
+            <p> or </p>
+            <p><span class="up">sign up</span></p>
+
+        </div>
+    </div>
+
+
+
+    <div id="sectionhome">
+        <div class="bg-container p-5">
+            <h1 class="head">Welcome To Groundwater Level Prediction</h1>
+            <div class="card">
+                <h1 class="head2"> Introduction:</h1>
+                <p class="para">Groundwater is a crucial natural resource, serving as a primary source of drinking water for millions of
+                    people worldwide. Its sustainable management is essential for agriculture, industrial processes,
+                    and ecosystem health. Predicting groundwater levels is vital for ensuring water availability, especially
+                    in regions facing increasing water scarcity due to climate change and population growth. Accurate prediction
+                    models enable proactive planning and resource allocation, aiding in the sustainable utilization of groundwater.
+                    This forecasting helps prevent over-extraction, mitigates the risk of aquifer depletion, and supports
+                    long-term water resource management strategies, contributing to the overall resilience of communities and ecosystems.</p>
+                <div class="text-center predict-cont">
+                    <button class="predict shadow" onclick="display('sectionpredict')"> Predict</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="sectionpredict">
+        <div class="containers">
+            <h1 class="level1"> Predict Your GroundWater Level </h1>
+
+
+            <div class="form p-2">
+                <div class="bg-container2">
+                    <div class="m-3">
+                        <label for="state" class="state1">Select Your State</label>
+                        <select id="state" class="form-control " onchange="populateDistricts()">
+                            <option value="">Select State</option>
+                            <option value="Andhra Pradesh">Andhra Pradesh</option>
+                            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                            <option value="Assam">Assam</option>
+                            <option value="Bihar">Bihar</option>
+                            <option value="Chhattisgarh">Chhattisgarh</option>
+                            <option value="Chandigarh">Chandigarh </option>
+                            <option value="Goa">Goa</option>
+                            <option value="Gujarat">Gujarat</option>
+                            <option value="Haryana">Haryana</option>
+                            <option value="Himachal Pradesh">Himachal Pradesh</option>
+                            <option value="Jharkhand">Jharkhand</option>
+                            <option value="Karnataka">Karnataka</option>
+                            <option value="Kerala">Kerala</option>
+                            <option value="Madhya Pradesh">Madhya Pradesh</option>
+                            <option value="Maharashtra">Maharashtra</option>
+                            <option value="Manipur">Manipur</option>
+                            <option value="Meghalaya">Meghalaya</option>
+                            <option value="Mizoram">Mizoram</option>
+                            <option value="Nagaland">Nagaland</option>
+                            <option value="Odisha">Odisha</option>
+                            <option value="Punjab">Punjab</option>
+                            <option value="Rajasthan">Rajasthan</option>
+                            <option value="Sikkim">Sikkim</option>
+                            <option value="Tamil Nadu">Tamil Nadu</option>
+                            <option value="Telangana">Telangana</option>
+                            <option value="Tripura">Tripura</option>
+                            <option value="Uttar Pradesh">Uttar Pradesh</option>
+                            <option value="Uttarakhand">Uttarakhand</option>
+                            <option value="West Bengal">West Bengal</option>
+                        </select>
+
+                        <label for="district" class="state1">Select District:</label>
+                        <select class="form-control " id="district">
+                            <!-- District options will be populated dynamically based on the selected state -->
+                        </select>
+                    </div>
+                    <button class="btn btn-primary m-3 buttons" onclick="display('sectionResult')">Submit</button>
+                </div>
+            </div>
+
+            <button class="btn btn-secondary buttons" onclick="display('sectionhome')">Back</button>
+        </div>
+    </div>
+
+    <script>
+        function populateDistricts() {
+            var stateSelect = document.getElementById("state");
+            var districtSelect = document.getElementById("district");
+
+            // Clear existing options
+            districtSelect.innerHTML = "";
+
+            // Get selected state
+            var selectedState = stateSelect.value;
+
+            // Populate districts based on the selected state
+            if (selectedState === "Andhra Pradesh") {
+                var districts = ["Anantapur", "Chittoor", "East Godavari", "Guntur", "Krishna", "Kurnool", "Nellore", "Prakasam", "Srikakulam", "Visakhapatnam", "Vizianagaram", "West Godavari", "Y.S.R. Kadapa"];
+            } else if (selectedState === "Tamil Nadu") {
+                var districts = ["Ariyalur", "Chengalpattu", "Chennai", "Coimbatore", "Cuddalore", "Dharmapuri", "Dindigul", "Erode", "Kallakurichi", "Kanchipuram", "Kanyakumari", "Karur", "Krishnagiri", "Madurai", "Nagapattinam", "Namakkal", "Nilgiris", "Perambalur", "Pudukkottai", "Ramanathapuram", "Ranipet", "Salem", "Sivaganga", "Tenkasi", "Thanjavur", "Theni", "Thoothukudi", "Tiruchirappalli", "Tirunelveli", "Tirupathur", "Tiruppur", "Tiruvallur", "Tiruvannamalai", "Tiruvarur", "Vellore", "Viluppuram", "Virudhunagar"];
+            } else if (selectedState === "Bihar") {
+                var districts = ["Patna", "Gaya", "Muzaffarpur", "Bhagalpur", "Darbhanga", "Purnia", "Arrah", "Begusarai", "Katihar", "Chhapra", "Danapur", "Bettiah", "Saharsa", "Sasaram", "Hajipur", "Dehri", "Siwan", "Motihari", "Nawada"];
+            } else if (selectedState === "Assam") {
+                var districts = ["Guwahati", "Dibrugarh", "Jorhat", "Silchar", "Nagaon", "Tezpur", "Tinsukia", "Lakhimpur", "Karimganj", "Barpeta", "Dhubri", "Goalpara", "Nalbari", "Diphu", "North Lakhimpur", "Dhemaji", "Bongaigaon", "Sivasagar", "Kokrajhar"];
+            } else if (selectedState === "Arunachal Pradesh") {
+                var districts = ["Itanagar", "Tawang", "Naharlagun", "Pasighat", "Roing", "Bomdila", "Aalo", "Ziro", "Tezu", "Namsai", "Seppa", "Anini", "Yingkiong", "Khonsa", "Changlang", "Daporijo", "Along", "Bordumsa", "Mechuka"];
+            } else if (selectedState === "Chhattisgarh") {
+                var districts = ["Raipur", "Bilaspur", "Durg", "Bhilai", "Rajnandgaon", "Korba", "Raigarh", "Jagdalpur", "Ambikapur", "Dhamtari", "Mahasamund", "Janjgir", "Kanker", "Naila Janjgir", "Bhatapara", "Kawardha"];
+            } else if (selectedState === "Chandigarh") {
+                var districts = ["Chandigarh"];
+            } else if (selectedState === "Goa") {
+                var districts = ["North Goa", "South Goa", "Panaji", "Margao", "Vasco da Gama", "Mapusa", "Ponda", "Bicholim", "Curchorem", "Cuncolim", "Valpoi", "Sanguem"];
+            } else if (selectedState === "Gujarat") {
+                var districts = ["Ahmedabad", "Surat", "Vadodara", "Rajkot", "Bhavnagar", "Jamnagar", "Junagadh", "Gandhinagar", "Anand", "Nadiad", "Morbi", "Navsari", "Surendranagar", "Bharuch", "Mehsana", "Valsad", "Himmatnagar"];
+            } else if (selectedState === "Haryana") {
+                var districts = ["Chandigarh", "Faridabad", "Gurgaon", "Hisar", "Panipat", "Ambala", "Rohtak", "Karnal", "Sonipat", "Panchkula", "Yamunanagar", "Sirsa", "Bhiwani", "Bahadurgarh", "Jind", "Thanesar", "Kaithal"];
+            } else if (selectedState === "Himachal Pradesh") {
+                var districts = ["Shimla", "Mandi", "Dharamshala", "Solan", "Nahan", "Una", "Kullu", "Chamba", "Bilaspur", "Hamirpur", "Sirmaur", "Kangra"];
+            } else if (selectedState === "Jharkhand") {
+                var districts = ["Ranchi", "Jamshedpur", "Dhanbad", "Bokaro", "Hazaribagh", "Deoghar", "Giridih", "Dumka", "Hazaribagh", "Jamtara", "Godda", "Simdega", "Chatra", "Koderma"];
+            } else if (selectedState === "Karnataka") {
+                var districts = ["Bangalore", "Mysore", "Hubli-Dharwad", "Mangalore", "Belgaum", "Gulbarga", "Davanagere", "Bellary", "Tumkur", "Shimoga", "Raichur", "Bidar", "Hospet", "Hassan", "Gadag-Betageri", "Udupi"];
+            } else if (selectedState === "Kerala") {
+                var districts = ["Thiruvananthapuram", "Kochi", "Kozhikode", "Thrissur", "Kollam", "Kannur", "Alappuzha", "Kottayam", "Palakkad", "Malappuram", "Pathanamthitta", "Idukki", "Kasaragod", "Wayanad", "Ernakulam"];
+            } else if (selectedState === "Madhya Pradesh") {
+                var districts = ["Bhopal", "Indore", "Jabalpur", "Gwalior", "Ujjain", "Sagar", "Dewas", "Satna", "Ratlam", "Rewa", "Chhindwara", "Morena", "Bhind", "Guna", "Shivpuri", "Datia", "Damoh"];
+            } else if (selectedState === "Maharashtra") {
+                var districts = ["Mumbai", "Pune", "Nagpur", "Thane", "Nashik", "Kolhapur", "Aurangabad", "Solapur", "Amravati", "Nanded", "Jalgaon", "Akola", "Latur", "Dhule", "Ahmednagar", "Chandrapur", "Parbhani", "Jalna"];
+            } else if (selectedState === "Manipur") {
+                var districts = ["Imphal East", "Imphal West", "Thoubal", "Bishnupur", "Churachandpur", "Chandel", "Tamenglong", "Senapati", "Ukhrul"];
+            } else if (selectedState === "Mizoram") {
+                var districts = ["Aizawl", "Lunglei", "Serchhip", "Champhai", "Kolasib", "Lawngtlai", "Mamit", "Saiha"];
+            } else if (selectedState === "Meghalaya") {
+                var districts = ["East Khasi Hills", "West Khasi Hills", "South West Khasi Hills", "East Jaintia Hills", "West Jaintia Hills", "East Garo Hills", "West Garo Hills", "South Garo Hills", "North Garo Hills"];
+            } else if (selectedState === "Nagaland") {
+                var districts = ["Kohima", "Dimapur", "Mokokchung", "Tuensang", "Wokha", "Mon", "Zunheboto", "Phek", "Peren"];
+            } else if (selectedState === "Odisha") {
+                var districts = ["Bhubaneswar", "Cuttack", "Rourkela", "Berhampur", "Sambalpur", "Balasore", "Puri", "Bargarh", "Bhadrak", "Jharsuguda", "Rayagada", "Kendujhar", "Angul", "Koraput", "Nuapada", "Nabarangpur", "Balangir"];
+            } else if (selectedState === "Punjab") {
+                var districts = ["Amritsar", "Ludhiana", "Jalandhar", "Patiala", "Bathinda", "Hoshiarpur", "Mohali", "Barnala", "Sangrur", "Mansa", "Gurdaspur", "Pathankot", "Firozpur", "Kapurthala", "Faridkot", "Moga", "Muktsar", "Rupnagar"];
+            } else if (selectedState === "Rajasthan") {
+                var districts = ["Jaipur", "Jodhpur", "Udaipur", "Kota", "Ajmer", "Bikaner", "Alwar", "Sikar", "Pali", "Sawai Madhopur", "Bharatpur", "Bhilwara", "Hanumangarh", "Jhunjhunu", "Chittorgarh", "Barmer", "Nagaur", "Dausa"];
+            } else if (selectedState === "Sikkim") {
+                var districts = ["East Sikkim", "West Sikkim", "North Sikkim", "South Sikkim"];
+            } else if (selectedState === "Telangana") {
+                var districts = ["Hyderabad", "Warangal", "Nizamabad", "Khammam", "Karimnagar", "Mahbubnagar", "Rangareddy", "Adilabad", "Nalgonda", "Medak"];
+            } else if (selectedState === "Uttar Pradesh") {
+                var districts = ["Lucknow", "Kanpur", "Agra", "Varanasi", "Meerut", "Prayagraj", "Ghaziabad", "Noida", "Gorakhpur", "Jhansi", "Mathura", "Bareilly", "Aligarh", "Moradabad", "Saharanpur", "Faizabad", "Firozabad", "Etawah", "Mirzapur", "Banda"];
+            } else if (selectedState === "Uttarakhand") {
+                var districts = ["Dehradun", "Haridwar", "Rishikesh", "Nainital", "Mussoorie", "Almora", "Pithoragarh", "Chamoli", "Rudrapur", "Pauri", "Kotdwar", "Tehri", "Haldwani", "Roorkee"];
+            } else if (selectedState === "West Bengal") {
+                var districts = ["Kolkata", "Howrah", "Durgapur", "Siliguri", "Asansol", "Bardhaman", "Malda", "Kharagpur", "Murshidabad", "Haldia", "Jalpaiguri", "Midnapore", "Cooch Behar", "Alipurduar", "Darjeeling", "Bankura", "Nadia", "Purulia", "South 24 Parganas", "North 24 Parganas"];
+            } else if (selectedState === "Tripura") {
+                var districts = ["Agartala", "Dharmanagar", "Udaipur", "Kailasahar", "Ambassa"];
+            }
+
+            // Add districts to the dropdown
+            for (var i = 0; i < districts.length; i++) {
+                var option = document.createElement("option");
+                option.value = districts[i].toLowerCase().replace(/\s/g, "_");
+                option.text = districts[i];
+                districtSelect.add(option);
+            }
+        }
+    </script>
+
+    <div id="sectionResult">
+        <div>
+            <h1>Here is Your Prediction</h1>
+        </div>
+        <button onclick="display('sectionpredict')">Back</button>
+
+    </div>
+
+
+    <script type="text/javascript" src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/js/ccbp-ui-kit.js"></script>
+
+</body>
+
+</html>
